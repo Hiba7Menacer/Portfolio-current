@@ -6,6 +6,7 @@ export interface Project {
   description: string
   images: string[]
   tags: string[]
+  link?: string
 }
 
 export const projects: Project[] = [
@@ -15,13 +16,14 @@ export const projects: Project[] = [
     shortTitle: "Portfolio",
     thumbnail: "/images/project1-thumb.jpg",
     description:
-      "A beautifully designed portfolio website for me as a frontend web developer and designer, showcasing my skills and projects in a visually appealing way. The design incorporates elegant typography, a clean layout, and a cohesive color scheme to create a professional and engaging online presence.",
+      "A beautifully designed portfolio website — clean typography, elegant layout, and a cohesive color scheme for a professional online presence.",
     images: [
       "/images/project1-thumb.jpg",
       "/images/Desktop-3.jpg",
       "/images/Desktop-4.jpg",
     ],
-    tags: ["Graphic Design", "Branding","Web Design"],
+    tags: ["Graphic Design", "Branding", "Web Design"],
+    link: "",
   },
   {
     id: "project-2",
@@ -29,13 +31,14 @@ export const projects: Project[] = [
     shortTitle: "Library",
     thumbnail: "/images/project2-thumb.jpg",
     description:
-      "A comprehensive web design project for a public reading library. The website features a warm, inviting design with Arabic content support, intuitive navigation, and responsive layouts. The goal was to make library resources accessible to the community through a modern, user-friendly digital experience.",
+      "A comprehensive web design for a public reading library with Arabic content support, intuitive navigation, and responsive layouts.",
     images: [
       "/images/project2-thumb.jpg",
       "/images/Desktop-1.jpg",
       "/images/Desktop-2.jpg",
     ],
     tags: ["Web Design", "UI/UX", "Arabic Content"],
+    link: "https://www.figma.com/design/cpGi81YIYnYlprpBY5Qu06/library-website-design?node-id=0-1&t=GRIyDhGUhvdYwf2g-1",
   },
   {
     id: "project-3",
@@ -43,26 +46,28 @@ export const projects: Project[] = [
     shortTitle: "Aero",
     thumbnail: "/images/project3-thumb.jpg",
     description:
-      "A clean and modern mobile application design for Aero, a location-based service app. The design focuses on simplicity, intuitive user flows, and a fresh color palette. The branding combines minimalism with functional design elements to create a memorable user experience.",
+      "A clean mobile application design for Aero — a location-based service app with minimalist branding and intuitive user flows.",
     images: [
       "/images/project3-thumb.jpg",
       "/images/FirstPage.jpg",
       "/images/SecondPage.jpg",
     ],
     tags: ["App Design", "Branding", "Mobile UI"],
+    link: "https://www.figma.com/design/EjaVxRx97nMNry14QcVmOw/Design-app--Copy-?t=GRIyDhGUhvdYwf2g-1",
   },
-   {
+  {
     id: "project-4",
-    title: "Planning app",
+    title: "Planning App",
     shortTitle: "Planning",
     thumbnail: "/images/project4-thumb.jpg",
     description:
-      "A clean and modern mobile application design for a planning app. The design focuses on simplicity, intuitive user flows, and a fresh color palette. The branding combines minimalism with functional design elements to create a memorable user experience.",
+      "A modern mobile planning app focused on simplicity, intuitive flows, and a fresh color palette with clean minimal design.",
     images: [
       "/images/Phone-1.jpg",
       "/images/Phone-2.jpg",
       "/images/Phone-3.jpg",
     ],
-    tags: ["App Design", "planning", "Mobile UI"],
+    tags: ["App Design", "Planning", "Mobile UI"],
+    link: "https://www.figma.com/design/uZrAJ17gcjZpAQ4AoAHOBR/planner?node-id=0-1&t=gKcU1MuvAzbTWbtU-1",
   },
 ]

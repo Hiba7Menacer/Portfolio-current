@@ -1,6 +1,7 @@
 interface StarProps {
   className?: string
   size?: number
+  style?: React.CSSProperties
 }
 
 export function FourPointStar({ className = "", size = 24 }: StarProps) {
