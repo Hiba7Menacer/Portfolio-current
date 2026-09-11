@@ -2,6 +2,7 @@
 
 import { useEffect, useRef } from "react"
 import Lenis from "lenis"
+import { MotionConfig, useReducedMotion } from "framer-motion"
 
 export default function SmoothScroll({
   children,
@@ -9,8 +10,11 @@ export default function SmoothScroll({
   children: React.ReactNode
 }) {
   const containerRef = useRef<HTMLDivElement>(null)
+  const reduceMotion = useReducedMotion()
 
   useEffect(() => {
+    if (reduceMotion) return
+
     const lenis = new Lenis({
       duration: 1.2,
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
@@ -28,7 +32,11 @@ export default function SmoothScroll({
     return () => {
       lenis.destroy()
     }
-  }, [])
+  }, [reduceMotion])
 
-  return <div ref={containerRef}>{children}</div>
+  return (
+    <MotionConfig reducedMotion="user">
+      <div ref={containerRef}>{children}</div>
+    </MotionConfig>
+  )
 }

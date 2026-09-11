@@ -16,10 +16,46 @@ const _montserrat = Montserrat({
   variable: "--font-sans",
 })
 
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000"
+
 export const metadata: Metadata = {
-  title: "Hiba Menacer | Portfolio",
+  metadataBase: new URL(SITE_URL),
+  title: {
+    default: "Hiba Menacer | Portfolio",
+    template: "%s | Hiba Menacer",
+  },
   description:
     "Designer & Front-End Developer blending art and code. Portfolio showcasing web design, UI/UX, and creative development projects.",
+  keywords: [
+    "Hiba Menacer",
+    "Portfolio",
+    "Front-End Developer",
+    "Web Design",
+    "UI/UX",
+    "React",
+    "Data Analysis",
+  ],
+  authors: [{ name: "Hiba Menacer" }],
+  creator: "Hiba Menacer",
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    url: SITE_URL,
+    siteName: "Hiba Menacer | Portfolio",
+    title: "Hiba Menacer | Portfolio",
+    description:
+      "Designer & Front-End Developer blending art and code. Portfolio showcasing web design, UI/UX, and creative development projects.",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Hiba Menacer | Portfolio",
+    description:
+      "Designer & Front-End Developer blending art and code. Portfolio showcasing web design, UI/UX, and creative development projects.",
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
 }
 
 export const viewport: Viewport = {

@@ -70,4 +70,36 @@ export const projects: Project[] = [
     tags: ["App Design", "Planning", "Mobile UI"],
     link: "https://www.figma.com/design/uZrAJ17gcjZpAQ4AoAHOBR/planner?node-id=0-1&t=gKcU1MuvAzbTWbtU-1",
   },
+  {
+    id: "project-5",
+    title: "HB Creations — Handmade Jewelry E-Commerce",
+    shortTitle: "E-Commerce",
+    thumbnail: "/ecommerce/img/products/PSX_20240606_162336.jpg",
+    description:
+      "A fully functional e-commerce website for HB Creations, a handmade jewelry brand. Built with HTML, CSS and vanilla JavaScript — featuring a product catalog, single product pages with galleries, a persistent cart (localStorage), coupon codes, and a fully responsive layout.",
+    images: [
+      "/ecommerce/img/products/PSX_20240606_162336.jpg",
+      "/ecommerce/img/products/PSX_20240606_162501.jpg",
+      "/ecommerce/img/products/PSX_20240606_163209.jpg",
+      "/ecommerce/img/necklace.png",
+    ],
+    tags: ["HTML / CSS", "JavaScript", "E-Commerce", "Responsive"],
+    link: "/ecommerce/index.html",
+  },
+  {
+    id: "project-6",
+    title: "Food Lover — Restaurant Website",
+    shortTitle: "Food Lover",
+    thumbnail: "/foodlover/img/food1.png",
+    description:
+      "A vibrant one-page restaurant website for Food Lover, built with HTML and CSS. Features a full menu showcase, special offers, food gallery, opening hours, and a contact section — all with a bold, colorful design and responsive layout.",
+    images: [
+      "/foodlover/img/gallery1.jpeg",
+      "/foodlover/img/gallery2.jpeg",
+      "/foodlover/img/gallery3.jpeg",
+      "/foodlover/img/about_img.png",
+    ],
+    tags: ["HTML / CSS", "Responsive", "Web Design"],
+    link: "/foodlover/index.html",
+  },
 ]

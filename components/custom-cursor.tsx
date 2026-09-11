@@ -1,9 +1,10 @@
 "use client"
 
 import { useEffect, useState } from "react"
-import { motion, useMotionValue, useSpring } from "framer-motion"
+import { motion, useMotionValue, useSpring, useReducedMotion } from "framer-motion"
 
 export default function CustomCursor() {
+  const reduceMotion = useReducedMotion()
   const [isVisible, setIsVisible] = useState(false)
   const cursorX = useMotionValue(-100)
   const cursorY = useMotionValue(-100)
@@ -11,6 +12,7 @@ export default function CustomCursor() {
   const springY = useSpring(cursorY, { stiffness: 500, damping: 28 })
 
   useEffect(() => {
+    if (reduceMotion) return
     const moveCursor = (e: MouseEvent) => {
       cursorX.set(e.clientX - 16)
       cursorY.set(e.clientY - 16)
@@ -34,7 +36,9 @@ export default function CustomCursor() {
         handleMouseLeave
       )
     }
-  }, [cursorX, cursorY])
+  }, [cursorX, cursorY, reduceMotion])
+
+  if (reduceMotion) return null
 
   return (
     <motion.div

@@ -5,6 +5,8 @@ import Image from "next/image"
 import { motion, useScroll, useTransform } from "framer-motion"
 import { projects } from "@/lib/projects"
 import { ExternalLink } from "lucide-react"
+import SpotlightCard from "./spotlight-card"
+import ScrollHeading from "./scroll-heading"
 
 function ProjectCard({
   project,
@@ -52,45 +54,52 @@ function ProjectCard({
         rel={project.link ? "noopener noreferrer" : undefined}
         className="block group"
       >
-        <motion.div
-          className="relative overflow-hidden rounded-2xl shadow-2xl bg-white/5 backdrop-blur-sm border border-white/10"
-          whileHover={{ scale: 1.03, rotate: 0 }}
-          transition={{ type: "spring", stiffness: 200, damping: 15 }}
-        >
-          <div className="aspect-video relative">
-            <Image
-              src={project.thumbnail || "/placeholder.svg"}
-              alt={project.title}
-              fill
-              className="object-cover transition-transform duration-700 group-hover:scale-105"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#09314D]/60 to-transparent" />
-            <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-[#58AFED]/5" />
-          </div>
+        <SpotlightCard>
+          <motion.div
+            className="relative overflow-hidden rounded-2xl shadow-2xl bg-white/5 backdrop-blur-sm border border-white/10"
+            whileHover={{ scale: 1.02, rotate: 0, y: -4 }}
+            transition={{ type: "spring", stiffness: 200, damping: 15 }}
+          >
+            <div className="aspect-video relative">
+              <Image
+                src={project.thumbnail || "/placeholder.svg"}
+                alt={project.title}
+                fill
+                className="object-cover transition-transform duration-700 group-hover:scale-105"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#09314D]/60 to-transparent" />
+              <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-[#58AFED]/10" />
+              <div className="absolute top-3 right-3 w-10 h-10 rounded-full bg-black/30 backdrop-blur-sm border border-white/20 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-500 translate-y-2 group-hover:translate-y-0">
+                <ExternalLink className="w-4 h-4 text-white" />
+              </div>
+            </div>
 
-          {/* Content overlay at bottom of card */}
-          <div className="p-5">
-            <div className="flex items-center justify-between">
-              <h3 className="font-serif text-xl font-bold text-black">
-                {project.title}
-              </h3>
-              <ExternalLink className="w-4 h-4 text-black/40 group-hover:text-[#58AFED] transition-colors" />
-            </div>
-            <p className="mt-2 font-sans text-sm text-black/60 leading-relaxed line-clamp-2">
-              {project.description}
-            </p>
-            <div className="flex flex-wrap gap-2 mt-3">
-              {project.tags.map((tag) => (
-                <span
-                  key={tag}
-                  className="px-2.5 py-1 text-xs font-sans bg-black/5 text-black/50 rounded-full border border-black/10"
-                >
-                  {tag}
+            {/* Content overlay at bottom of card */}
+            <div className="p-5">
+              <div className="flex items-center justify-between">
+                <h3 className="font-serif text-xl font-bold text-black">
+                  {project.title}
+                </h3>
+                <span className="font-sans text-xs text-black/40">
+                  {String(index + 1).padStart(2, "0")}
                 </span>
-              ))}
+              </div>
+              <p className="mt-2 font-sans text-sm text-black/60 leading-relaxed line-clamp-2">
+                {project.description}
+              </p>
+              <div className="flex flex-wrap gap-2 mt-3">
+                {project.tags.map((tag) => (
+                  <span
+                    key={tag}
+                    className="px-2.5 py-1 text-xs font-sans bg-black/5 text-black/50 rounded-full border border-black/10 transition-colors duration-300 group-hover:border-[#58AFED]/30 group-hover:text-black/70"
+                  >
+                    {tag}
+                  </span>
+                ))}
+              </div>
             </div>
-          </div>
-        </motion.div>
+          </motion.div>
+        </SpotlightCard>
       </a>
     </motion.div>
   )
@@ -100,9 +109,9 @@ export default function Works() {
   return (
     <section className="py-20 md:py-32 px-6 md:px-16 lg:px-24 max-w-6xl mx-auto">
       <div className="text-center mb-16">
-        <h2 className="font-serif text-5xl md:text-6xl lg:text-7xl font-bold text-black">
+        <ScrollHeading className="font-serif text-5xl md:text-6xl lg:text-7xl font-bold text-black">
           MY WORK
-        </h2>
+        </ScrollHeading>
         <p className="mt-4 font-sans text-sm md:text-base text-black/50 max-w-md mx-auto">
           Projects drifting in the digital cosmos — each one a world of its own.
         </p>

@@ -2,6 +2,8 @@
 
 import { useRef } from "react"
 import { motion, useInView } from "framer-motion"
+import SpotlightCard from "./spotlight-card"
+import ScrollHeading from "./scroll-heading"
 
 const skillData = [
   {
@@ -27,9 +29,9 @@ export default function Skills() {
     <section id="skills" className="relative py-20 md:py-32 px-6 md:px-16 lg:px-24">
       <div className="max-w-5xl mx-auto">
         <div className="text-center mb-16">
-          <h2 className="font-serif text-5xl md:text-6xl lg:text-7xl font-bold text-black">
+          <ScrollHeading className="font-serif text-5xl md:text-6xl lg:text-7xl font-bold text-black">
             SKILLS
-          </h2>
+          </ScrollHeading>
           <p className="mt-4 font-sans text-sm md:text-base text-black/50 max-w-md mx-auto">
             Tools and technologies I work with across the stack.
           </p>
@@ -65,17 +67,22 @@ function CategoryCard({
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-80px" }}
       transition={{ duration: 0.6, delay: index * 0.12, ease: [0.25, 0.46, 0.45, 0.94] }}
-      className="p-6 md:p-8 rounded-2xl bg-white/[0.04] backdrop-blur-sm border border-white/10 hover:bg-white/[0.07] transition-all duration-500"
     >
-      <h3 className="font-serif text-xl md:text-2xl font-bold text-black mb-5 flex items-center gap-3">
-        <span className="w-2 h-2 rounded-full bg-[#58AFED]" />
-        {category}
-      </h3>
-      <div className="flex flex-wrap gap-2.5">
-        {skills.map((skill, i) => (
-          <SkillChip key={skill} name={skill} index={i} />
-        ))}
-      </div>
+      <SpotlightCard className="p-6 md:p-8 rounded-2xl bg-white/[0.04] backdrop-blur-sm border border-white/10 hover:border-white/20 transition-all duration-500">
+        <h3 className="font-serif text-xl md:text-2xl font-bold text-black mb-5 flex items-center gap-3">
+          <motion.span
+            className="w-2 h-2 rounded-full bg-[#58AFED]"
+            animate={{ scale: [1, 1.5, 1], opacity: [1, 0.6, 1] }}
+            transition={{ duration: 2, repeat: Infinity, delay: index * 0.3 }}
+          />
+          {category}
+        </h3>
+        <div className="flex flex-wrap gap-2.5">
+          {skills.map((skill, i) => (
+            <SkillChip key={skill} name={skill} index={i} />
+          ))}
+        </div>
+      </SpotlightCard>
     </motion.div>
   )
 }
@@ -90,7 +97,8 @@ function SkillChip({ name, index }: { name: string; index: number }) {
       initial={{ opacity: 0, scale: 0.8, y: 10 }}
       animate={isInView ? { opacity: 1, scale: 1, y: 0 } : {}}
       transition={{ duration: 0.3, delay: index * 0.05 }}
-      className="px-4 py-2 text-sm font-sans text-black/70 bg-white/[0.06] rounded-full border border-white/10 hover:border-[#58AFED]/40 hover:text-black hover:bg-white/[0.1] transition-all duration-300 cursor-default"
+      whileHover={{ scale: 1.1, y: -2 }}
+      className="px-4 py-2 text-sm font-sans text-black/70 bg-white/[0.06] rounded-full border border-white/10 hover:border-[#58AFED]/50 hover:text-black hover:bg-[#58AFED]/10 hover:shadow-[0_0_16px_rgba(88,175,237,0.25)] transition-all duration-300 cursor-default"
     >
       {name}
     </motion.span>

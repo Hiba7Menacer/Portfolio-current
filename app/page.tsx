@@ -8,10 +8,11 @@ import SpaceScene from "@/components/space-scene"
 import ScrollProgress from "@/components/scroll-progress"
 import CustomCursor from "@/components/custom-cursor"
 import DepthLayer from "@/components/depth-layer"
+import SmoothScroll from "@/components/smooth-scroll"
 
 export default function Page() {
   return (
-    <>
+    <SmoothScroll>
       <ScrollProgress />
       <CustomCursor />
 
@@ -44,8 +45,17 @@ export default function Page() {
           <Contact />
         </DepthLayer>
 
+        {/* Footer */}
+        <footer className="relative py-10 text-center">
+          <p className="font-sans text-xs text-black/40">
+            Designed & built by{" "}
+            <span className="text-black/70 font-semibold">Hiba Menacer</span> ·{" "}
+            <span className="text-[#58AFED]">©</span> 2026
+          </p>
+        </footer>
+
         <div className="h-screen" />
       </main>
-    </>
+    </SmoothScroll>
   )
 }

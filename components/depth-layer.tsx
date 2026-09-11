@@ -1,7 +1,7 @@
 "use client"
 
 import { useRef } from "react"
-import { motion, useScroll, useTransform } from "framer-motion"
+import { motion, useScroll, useTransform, useReducedMotion } from "framer-motion"
 
 interface Props {
   children: React.ReactNode
@@ -22,6 +22,7 @@ export default function DepthLayer({
   fadeDistance = 800,
 }: Props) {
   const ref = useRef<HTMLDivElement>(null)
+  const reduceMotion = useReducedMotion()
 
   const { scrollYProgress } = useScroll()
 
@@ -34,6 +35,14 @@ export default function DepthLayer({
     return Math.max(0, Math.min(1, 1 - dist / fadeDistance))
   })
   const y = useTransform(distance, (d) => Math.min(d / fadeDistance, 1) * 30)
+
+  if (reduceMotion) {
+    return (
+      <div ref={ref} id={id} className={className}>
+        {children}
+      </div>
+    )
+  }
 
   return (
     <motion.div

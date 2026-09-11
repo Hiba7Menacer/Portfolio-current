@@ -76,10 +76,43 @@
   50% { opacity: 1; transform: scale(1.2); }
 }
 
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
 .animate-float-1 { animation: float-1 4s ease-in-out infinite; }
 .animate-float-2 { animation: float-2 5s ease-in-out infinite; }
 .animate-float-3 { animation: float-3 6s ease-in-out infinite; }
 .animate-twinkle { animation: twinkle 3s ease-in-out infinite; }
+.marquee-track { animation: marquee 40s linear infinite; }
+.marquee-track-reverse { animation-direction: reverse; }
+
+/* Spotlight card glow */
+.spotlight-card {
+  --spotlight-x: 50%;
+  --spotlight-y: 50%;
+  --spotlight-color: rgba(88, 175, 237, 0.12);
+}
+
+.spotlight-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  background: radial-gradient(
+    340px circle at var(--spotlight-x) var(--spotlight-y),
+    var(--spotlight-color),
+    transparent 70%
+  );
+  pointer-events: none;
+}
+
+.spotlight-card:hover::before {
+  opacity: 1;
+}
 
 /* Smooth scrolling */
 html {
@@ -87,7 +120,7 @@ html {
 }
 
 /* Hide default cursor on desktop */
-@media (pointer: fine) {
+@media (pointer: fine) and (prefers-reduced-motion: no-preference) {
   * {
     cursor: none !important;
   }
@@ -109,6 +142,42 @@ html {
 ::selection {
   background: #58AFED;
   color: #0b2c47;
+}
+
+/* Respect users who prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto !important;
+  }
+  .animate-float-1,
+  .animate-float-2,
+  .animate-float-3,
+  .animate-twinkle,
+  .marquee-track,
+  .marquee-track-reverse {
+    animation: none !important;
+  }
+}
+
+/* Print styles for the CV page */
+@media print {
+  html {
+    background: #fff !important;
+  }
+  body {
+    background: #fff !important;
+    color: #000 !important;
+  }
+  .noise-overlay,
+  .print\:hidden {
+    display: none !important;
+  }
+  article {
+    border: none !important;
+    box-shadow: none !important;
+    background: #fff !important;
+    backdrop-filter: none !important;
+  }
 }
 
 @layer utilities {

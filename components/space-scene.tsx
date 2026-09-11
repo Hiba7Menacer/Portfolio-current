@@ -2,6 +2,7 @@
 
 import { useRef, useMemo, useEffect } from "react"
 import { Canvas, useFrame, useThree } from "@react-three/fiber"
+import { useReducedMotion } from "framer-motion"
 import * as THREE from "three"
 
 const TOTAL_DEPTH = 80
@@ -109,6 +110,10 @@ function FloatingStars() {
 }
 
 export default function SpaceScene() {
+  const reduceMotion = useReducedMotion()
+
+  if (reduceMotion) return null
+
   return (
     <div className="fixed inset-0 z-0">
       <Canvas
