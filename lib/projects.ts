@@ -59,10 +59,11 @@ export const projects: Project[] = [
     id: "project-4",
     title: "Planning App",
     shortTitle: "Planning",
-    thumbnail: "/images/project4-thumb.jpg",
+    thumbnail: "/images/app-photo.png",
     description:
       "A modern mobile planning app focused on simplicity, intuitive flows, and a fresh color palette with clean minimal design.",
     images: [
+      "/images/app-photo.png",
       "/images/Phone-1.jpg",
       "/images/Phone-2.jpg",
       "/images/Phone-3.jpg",
