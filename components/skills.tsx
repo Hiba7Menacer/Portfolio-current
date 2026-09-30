@@ -8,19 +8,33 @@ import ScrollHeading from "./scroll-heading"
 const skillData = [
   {
     category: "Programming",
-    skills: ["Python", "SQL", "Java"],
+    skills: ["Python", "Java", "JavaScript", "C"],
+  },
+  {
+    category: "Web & UI/UX",
+    skills: ["HTML", "CSS", "React", "Figma", "UI/UX Design"],
   },
   {
     category: "Data & AI",
-    skills: ["Data Analysis", "Machine Learning", "Data Preprocessing", "Exploratory Analysis"],
+    skills: ["SQL", "Data Analysis", "Machine Learning", "Deep Learning"],
   },
   {
-    category: "Front-End & Design",
-    skills: ["HTML / CSS", "React", "Figma", "Photoshop"],
+    category: "Tools",
+    skills: ["VS Code", "Git / GitHub", "Kaggle"],
   },
   {
-    category: "Tools & Platforms",
-    skills: ["Git / GitHub", "Kaggle", "Next.js"],
+    category: "Operating Systems",
+    skills: ["Windows", "Linux"],
+  },
+  {
+    category: "Personal",
+    skills: [
+      "Communication & Teamwork",
+      "Problem-Solving",
+      "Creativity",
+      "Adaptability",
+      "Time Management",
+    ],
   },
 ]
 
@@ -33,7 +47,7 @@ export default function Skills() {
             SKILLS
           </ScrollHeading>
           <p className="mt-4 font-sans text-sm md:text-base text-black/50 max-w-md mx-auto">
-            Tools and technologies I work with across the stack.
+            The technologies, tools and strengths I bring to every project.
           </p>
         </div>
 
